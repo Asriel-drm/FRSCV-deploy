@@ -1,0 +1,100 @@
+backend:
+  name: gitlab
+  repo: group/site-fr-scv                 # project path on your instance
+  branch: main
+  api_root: https://gitlab.example.fr/api/v4
+  base_url: https://gitlab.example.fr
+  auth_type: pkce
+  app_id: YOUR_APPLICATION_ID             # step 6
+  auth_endpoint: oauth/authorize
+
+local_backend: true                       # only active when decap-server is running
+publish_mode: editorial_workflow
+locale: fr
+
+media_folder: "{{slug}}/project/"       # required global fallback
+public_folder: "/uploads"
+
+collections:
+  - name: banner
+    label: Bannière d’accueil
+    files:
+      - name: banner
+        label: Contenu de la bannière
+        file: src/assets/banner/banner.json
+        media_folder: ""
+        public_folder: ""
+        fields:
+          - { name: image, label: Bannière, widget: image }
+          - { name: imageAlt, label: Bannière alt (webp, avif, format plus compréssé), widget: image, required: false }
+  - name: timeline
+    label: Chronologie
+    files:
+      - name: timeline
+        label: Étapes de la chaîne de production
+        file: src/assets/config/timeline.json
+        media_folder: "../timeline"
+        public_folder: "../timeline"
+        fields:
+          - { name: title, label: Titre de la section, widget: string }
+          - { name: subtitle, label: Sous-titre, widget: string }
+          - name: events
+            label: Étapes
+            widget: list
+            summary: "{{year}} — {{title}}"
+            fields:
+              - { name: year, label: Numéro, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: description, label: Description courte, widget: text }
+              - { name: image, label: Image, widget: image, required: false }
+              - { name: imageWebp, label: Image alternatice (format compressé, webp, avif), widget: image, required: false }
+              - { name: details, label: Informations détaillées, widget: text, required: false }
+              - { name: iframeUrl, label: URL iframe, widget: string, required: false }
+              - { name: iframeTitle, label: Titre accessible du modèle, widget: string, required: false }
+  - name: applications3d
+    label: Capture et modélisation
+    files:
+      - name: applications3d
+        label: Contenu et exemples 3D
+        file: src/assets/config/applications3D.json
+        fields:
+          - { name: eyebrow, label: Surtitre, widget: string }
+          - { name: title, label: Titre de la section, widget: string }
+          - { name: description, label: Introduction, widget: text }
+          - name: examples
+            label: Exemples
+            widget: list
+            summary: "{{number}} — {{title}}"
+            fields:
+              - { name: number, label: Numéro, widget: string }
+              - { name: title, label: Titre, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Image d’illustration, widget: image, required: false, media_folder: "public/uploads/applications3d", public_folder: "/uploads/applications3d" }
+              - { name: model, label: Modèle 3D, widget: select, options: ["glb/expalon.glb", "glb/big_blake.glb", "glb/knight.glb"], hint: "Choisir le modèle 3D associé à cette carte." }
+  - name: projects
+    label: Projets
+    label_singular: Projet
+    folder: src/assets/projects
+    create: true
+    path: "{{slug}}/project"
+    media_folder: ""                      # files saved next to each project.json
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{title}} ({{year}})"
+    fields:
+      - { name: index, label: Ordre, widget: number, value_type: int, default: 0, step: 1 }
+      - { name: title, label: Titre, widget: string }
+      - { name: year, label: Année, widget: string, required: false, hint: "ex : 2026-2027" }
+      - { name: tags, label: Tags, widget: string, hint: "séparés par des virgules" }
+      - { name: thumb, label: Vignette, widget: image }
+      - { name: thumbAlt, label: Vignette alt, widget: image }
+      - { name: video, label: Vidéo (chemin ou URL), widget: string, required: false }
+      - { name: website, label: Site web, widget: string, required: false }
+      - { name: model, label: Modèle 3D (.glb), widget: file, required: false }
+      - { name: description, label: Description, widget: text }
+      - { name: porteurs, label: Porteurs du projet, widget: list, required: false, field: { name: nom, label: Nom, widget: string } }
+      - { name: coordinateurs, label: Coordinateurs scientifiques, widget: list, required: false, field: { name: nom, label: Nom, widget: string } }
+      - { name: financements, label: Soutiens et financements, widget: list, required: false, field: { name: nom, label: Nom, widget: string } }
+      - { name: logos, label: Logos financeurs, required: false, widget: image, multiple: true, media_folder: "logos", public_folder: "logos" }
+      - { name: additional, label: "Information complémentaire", required: false, widget: string}
