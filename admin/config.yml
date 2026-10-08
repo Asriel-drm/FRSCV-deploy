@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: Asriel-drm/Portfolio-FR-SCV-React
-  branch: main
+  branch: R3F
 
 site_url: https://asriel-drm.github.io/FRSCV-deploy/
 display_url: https://asriel-drm.github.io/FRSCV-deploy/
