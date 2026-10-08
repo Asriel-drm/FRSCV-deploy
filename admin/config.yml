@@ -1,6 +1,10 @@
 backend:
   name: github
   repo: Asriel-drm/FRSCV-deploy
+  branch: gh-pages
+
+site_url: https://asriel-drm.github.io/FRSCV-deploy/
+display_url: https://asriel-drm.github.io/FRSCV-deploy/
 
 publish_mode: editorial_workflow
 locale: fr
