@@ -6,7 +6,7 @@ backend:
 site_url: https://asriel-drm.github.io/FRSCV-deploy/
 display_url: https://asriel-drm.github.io/FRSCV-deploy/
 
-publish_mode: editorial_workflow
+publish_mode: simple
 locale: fr
 
 media_folder: "{{slug}}/project/"
