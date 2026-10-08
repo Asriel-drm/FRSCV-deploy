@@ -1,14 +1,7 @@
 backend:
   name: github
   repo: Asriel-drm/FRSCV-deploy
-  branch: main
-  api_root: https://gitlab.example.fr/api/v4
-  base_url: https://gitlab.example.fr
-  auth_type: pkce
-  app_id: YOUR_APPLICATION_ID
-  auth_endpoint: oauth/authorize
 
-local_backend: true
 publish_mode: editorial_workflow
 locale: fr
 
