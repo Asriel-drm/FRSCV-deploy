@@ -53,9 +53,9 @@ collections:
     files:
       - name: applications3d
         label: Contenu et exemples 3D
-        file: src/assets/config/applications3D.json
-        media_folder: "../applications3D"
-        public_folder: "../applications3D"
+        file: src/assets/config/modelShowcase.json
+        media_folder: "../modelShowcase"
+        public_folder: "../modelShowcase"
         fields:
           - { name: eyebrow, label: Surtitre, widget: string }
           - { name: title, label: Titre de la section, widget: string }
