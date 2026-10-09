@@ -54,6 +54,8 @@ collections:
       - name: applications3d
         label: Contenu et exemples 3D
         file: src/assets/config/applications3D.json
+        media_folder: "../applications3D"
+        public_folder: "../applications3D"
         fields:
           - { name: eyebrow, label: Surtitre, widget: string }
           - { name: title, label: Titre de la section, widget: string }
@@ -66,8 +68,8 @@ collections:
               - { name: number, label: Numéro, widget: string }
               - { name: title, label: Titre, widget: string }
               - { name: description, label: Description, widget: text }
-              - { name: image, label: Image d’illustration, widget: image, required: false, media_folder: "public/uploads/applications3d", public_folder: "/uploads/applications3d" }
-              - { name: model, label: Modèle 3D, widget: select, options: ["glb/expalon.glb", "glb/big_blake.glb", "glb/knight.glb"], hint: "Choisir le modèle 3D associé à cette carte." }
+              - { name: image, label: Image d’illustration, widget: image, required: false}
+              - { name: model, label: Modèle 3D, widget: file, required: false}
   - name: projects
     label: Projets
     label_singular: Projet
