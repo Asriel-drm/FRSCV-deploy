@@ -9,7 +9,7 @@ display_url: https://asriel-drm.github.io/FRSCV-deploy/
 publish_mode: simple
 locale: fr
 
-media_folder: "{{slug}}/project/"
+media_folder: "/src/assets/"
 public_folder: "/uploads"
 
 collections:
@@ -48,6 +48,24 @@ collections:
               - { name: details, label: Informations détaillées, widget: text, required: false }
               - { name: iframeUrl, label: URL iframe, widget: string, required: false }
               - { name: iframeTitle, label: Titre accessible du modèle, widget: string, required: false }
+
+  - name: logos
+    label: Logos
+    files:
+      - name: logos
+        label: Logos partenaires
+        file: src/assets/config/logos.json
+        media_folder: "../logos"
+        public_folder: "../logos"
+        fields:
+          - name: logo_list
+            widget: list
+            fields:
+              - { name: logo, label: Logo, widget: image }
+              - { name: name, label: Nom du partenaire, widget: string }
+              - { name: href, label: site web, widget: string, required: false }
+
+
   - name: applications3d
     label: Capture et modélisation
     files:
