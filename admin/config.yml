@@ -51,19 +51,31 @@ collections:
 
   - name: logos
     label: Logos
+    media_folder: "../logos"
+    public_folder: "../logos"
     files:
-      - name: logos
-        label: Logos partenaires
+      - name: logos_inst
+        label: Logos insitutions
         file: src/assets/config/logos.json
-        media_folder: "../logos"
-        public_folder: "../logos"
         fields:
-          - name: logo_list
+          - name: logo_institutions
             widget: list
             fields:
+              - { name: index, label: Position, widget: number, value_type: int }
               - { name: logo, label: Logo, widget: image }
               - { name: name, label: Nom du partenaire, widget: string }
               - { name: href, label: site web, widget: string, required: false }
+      - name: logos_collab
+        label: Logos collaborateurs
+        file: src/assets/config/logos.json
+        fields:
+          - name: logo_collaborateurs
+            widget: list
+            fields:
+            - { name: index, label: Position, widget: number, value_type: int }
+            - { name: logo, label: Logo, widget: image }
+            - { name: name, label: Nom du partenaire, widget: string }
+            - { name: href, label: site web, widget: string, required: false }
 
 
   - name: applications3d
@@ -103,12 +115,11 @@ collections:
       - { name: index, label: Ordre, widget: number, value_type: int, default: 0, step: 1 }
       - { name: title, label: Titre, widget: string }
       - { name: year, label: Année, widget: string, required: false, hint: "ex : 2026-2027" }
-      - { name: tags, label: Tags, widget: string, hint: "séparés par des virgules" }
+      - { name: tags, label: Tags, widget: string, hint: "séparés par des virgules", required: false }
       - { name: thumb, label: Vignette, widget: image }
-      - { name: thumbAlt, label: Vignette alt, widget: image }
-      - { name: video, label: Vidéo (chemin ou URL), widget: string, required: false }
+      - { name: thumbAlt, label: Vignette alt, widget: image, required: false }
+      - { name: video, label: Vidéo, widget: file, required: false }
       - { name: website, label: Site web, widget: string, required: false }
-      - { name: model, label: Modèle 3D (.glb), widget: file, required: false }
       - { name: description, label: Description, widget: text }
       - { name: porteurs, label: Porteurs du projet, widget: list, required: false, field: { name: nom, label: Nom, widget: string } }
       - { name: coordinateurs, label: Coordinateurs scientifiques, widget: list, required: false, field: { name: nom, label: Nom, widget: string } }
