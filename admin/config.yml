@@ -100,6 +100,17 @@ collections:
               - { name: description, label: Description, widget: text }
               - { name: image, label: Image d’illustration, widget: image, required: false}
               - { name: model, label: Modèle 3D, widget: file, required: false}
+              - name: rotation
+                label: Rotation du modèle
+                widget: list
+                required: false
+                hint: "Ex (radians) : 0, -1.57, 0"
+                field:
+                  name: value
+                  label: Angle
+                  widget: number
+                  value_type: float
+                  
   - name: projects
     label: Projets
     label_singular: Projet
