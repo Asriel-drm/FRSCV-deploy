@@ -9,7 +9,7 @@ display_url: https://asriel-drm.github.io/FRSCV-deploy/
 publish_mode: simple
 locale: fr
 
-media_folder: "/src/assets/"
+media_folder: "/frontend/src/assets/"
 public_folder: "/uploads"
 
 collections:
@@ -18,7 +18,7 @@ collections:
     files:
       - name: banner
         label: Contenu de la bannière
-        file: src/assets/banner/banner.json
+        file: frontend/src/assets/banner/banner.json
         media_folder: ""
         public_folder: ""
         fields:
@@ -29,7 +29,7 @@ collections:
     files:
       - name: timeline
         label: Étapes de la chaîne de production
-        file: src/assets/config/timeline.json
+        file: frontend/src/assets/config/timeline.json
         media_folder: "../timeline"
         public_folder: "../timeline"
         fields:
@@ -55,8 +55,8 @@ collections:
     public_folder: "../logos"
     files:
       - name: logos_inst
-        label: Logos insitutions
-        file: src/assets/config/logos.json
+        label: Logos institutions
+        file: frontend/src/assets/config/logos.json
         fields:
           - name: logo_institutions
             widget: list
@@ -67,7 +67,7 @@ collections:
               - { name: href, label: site web, widget: string, required: false }
       - name: logos_collab
         label: Logos collaborateurs
-        file: src/assets/config/logos.json
+        file: frontend/src/assets/config/logos.json
         fields:
           - name: logo_collaborateurs
             widget: list
@@ -83,7 +83,7 @@ collections:
     files:
       - name: applications3d
         label: Contenu et exemples 3D
-        file: src/assets/config/modelShowcase.json
+        file: frontend/src/assets/config/modelShowcase.json
         media_folder: "../modelShowcase"
         public_folder: "../modelShowcase"
         fields:
@@ -114,7 +114,7 @@ collections:
   - name: projects
     label: Projets
     label_singular: Projet
-    folder: src/assets/projects
+    folder: frontend/src/assets/projects
     create: true
     path: "{{slug}}/project"
     media_folder: ""                      # files saved next to each project.json
